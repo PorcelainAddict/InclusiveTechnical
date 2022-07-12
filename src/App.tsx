@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ProductPage from './Pages/Product/products';
+import { Layout } from './Components/Layout/Layout';
 
+//remove app.css with custom css in Header (also do footer)
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <>
+                <Layout>
+                    <ProductPage />
+                </Layout>
+            </>
+        </div>
+    );
 }
 
 export default App;
