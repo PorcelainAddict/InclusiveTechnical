@@ -1,5 +1,6 @@
-import formatPrice from './formatPrice';
+// const formattedPrice = require('./formatPrice');
+import { formattedPrice } from './formatPrice';
 
 test('Formats price into sterling with two decimals', () => {
-    expect(formatPrice(32.4)).toBe('£32.40');
+    expect(formattedPrice(32.4)).toBe('£32.40');
 });
