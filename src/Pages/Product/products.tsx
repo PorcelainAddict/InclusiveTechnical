@@ -8,32 +8,24 @@ import CartDrawer from '../../Components/Cart/CartDrawer';
 import { Cart } from '../../Models/cart';
 
 const ProductPage = () => {
+    //To do: refactor productList --> unneccessary
     const [productList, setProductList] = useState(productData);
-    const [cart, SetNewCart] = useState<Cart[]>([]);
+    const [cart, setNewCart] = useState<Cart[]>([]);
 
     const addItemToCart = (item: Product) => {
-        //Add to Cart Array
-        const addToCart = SetNewCart((cart) => [{ products: item }, ...cart]);
-        // const newCart = SetNewCart(cart.concat({ products: item }));
-
-        //could add function here to reduce stock if added to stock. Though I think this would make more sense on purchase.
-
+        const addToCart = setNewCart((cart) => [{ products: item }, ...cart]);
         return addToCart;
     };
 
-    //Remove From Cart Array
-
     const removeItemFromCart = (cart: Cart[], item: Product) => {
         const newCart = [...cart];
-        const updateCart = newCart.forEach((cartItem, index) => {
-            if (cartItem.products.id === item.id) {
-                const updatedCart = cart.splice(index, 1);
-                console.log('updatedCart', updatedCart);
-                return updatedCart;
-            }
-        });
-        SetNewCart(newCart);
-        return updateCart;
+        const spliceCart = newCart.splice(
+            newCart.findIndex((elemment) => elemment.products.id === item.id),
+            1
+        );
+
+        setNewCart(newCart);
+        return spliceCart;
     };
 
     return (

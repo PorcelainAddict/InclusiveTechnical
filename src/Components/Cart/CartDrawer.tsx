@@ -11,10 +11,10 @@ interface CartDrawerProps {
 }
 
 const CartDrawer = ({ items, removeFromCart }: CartDrawerProps) => {
-    const [showCart, SetShowCart] = useState<boolean>(true);
+    const [showCart, setShowCart] = useState<boolean>(true);
 
     const handleShowCart = (shown: boolean) => {
-        SetShowCart(!shown);
+        setShowCart(!shown);
     };
 
     return (
