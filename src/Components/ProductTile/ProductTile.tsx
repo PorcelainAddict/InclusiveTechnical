@@ -30,17 +30,26 @@ const ProductTile = ({ product, addToCart }: ProductTileProps) => {
                 </ProductCategoryContainer>
                 <OrderContainer>
                     <ProductPrice>{itemPrice}</ProductPrice>
-                    <ProductStock>{product.stock}</ProductStock>
-                    <StyledButton
-                        onClick={() => addToCart(product)}
-                        colour={'#70a37f'}
-                        rounded={'30px'}
-                        bkGroundColour={'#414073'}
-                        width={'120px'}
-                        height={'30px'}
-                    >
-                        {'Add to Cart'}
-                    </StyledButton>
+                    {product.stock !== 0 && (
+                        <ProductStock>{`In Stock ${product.stock}`}</ProductStock>
+                    )}
+
+                    {product.stock === 0 ? (
+                        <OutOfStockMessage>
+                            Sorry we are out of stock
+                        </OutOfStockMessage>
+                    ) : (
+                        <StyledButton
+                            onClick={() => addToCart(product)}
+                            colour={'#70a37f'}
+                            rounded={'30px'}
+                            bkGroundColour={'#414073'}
+                            width={'120px'}
+                            height={'30px'}
+                        >
+                            {'Add to Cart'}
+                        </StyledButton>
+                    )}
                 </OrderContainer>
             </ProductContainer>
         </>
@@ -51,6 +60,7 @@ const ProductContainer = styled.div`
     display: flex;
     flex-direction: column;
     border: 2px green solid;
+    border-radius: 15px;
     height: 20rem;
     padding: 2rem;
     width: 30rem;
@@ -68,6 +78,11 @@ const ProductNameContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: start;
+`;
+
+const OutOfStockMessage = styled.p`
+    font-size: 16px;
+    margin: 0;
 `;
 
 const ProductName = styled.h1`
@@ -112,7 +127,7 @@ const ProductActivity = styled.p`
 const OrderContainer = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 `;
 
 const ProductPrice = styled.p`

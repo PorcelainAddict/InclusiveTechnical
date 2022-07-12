@@ -7,11 +7,15 @@ interface CartItemProps {
 }
 
 const CartItem = ({ item }: CartItemProps) => {
-    return <Item>{item.productName}</Item>;
+    return (
+        <Item>
+            {`${item.category.gender} ${item.category.activity} ${item.productName}`}
+        </Item>
+    );
 };
 
 const Item = styled.h6`
-    font-size: 12px;
+    font-size: 16px;
 `;
 
 export default CartItem;

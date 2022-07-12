@@ -42,8 +42,6 @@ const CartList = ({
 
     const priceText = withDiscount(cartPrice);
 
-    console.log('cartItems', items);
-
     return (
         <>
             <Container>
@@ -53,10 +51,14 @@ const CartList = ({
                         <CartItemRow key={`item_identity_${i}`}>
                             <CartItem item={item.products} />
                             <StyledButton
+                                height="25px"
+                                width="125px"
                                 onClick={() =>
                                     removeFromCart(items, item.products)
                                 }
-                            />
+                            >
+                                Remove
+                            </StyledButton>
                         </CartItemRow>
                     ))}
                 </RowContainer>
@@ -76,12 +78,16 @@ const CartList = ({
 };
 
 const TotalPrice = styled.h2`
-    font-size: 16px;
+    font-size: 24px;
+    padding: 15px;
     display: flex;
     justify-content: center;
+    background-color: white;
+    border: 2px grey solid;
+    border-radius: 20px;
     position: sticky;
     top: 0;
-    margin: 40px;
+    margin: 3rem 1rem 5rem;
 `;
 
 const ButtonContainer = styled.div`
@@ -114,7 +120,11 @@ const CartItemRow = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 70%;
+    margin: 4px 0 4px 0;
+    background-color: #b1c7b8;
+    border: 3px solid grey;
+    border-radius: 20px;
+    width: 100%;
 `;
 
 export default CartList;

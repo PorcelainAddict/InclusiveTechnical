@@ -21,10 +21,10 @@ const ProductList = ({ products, addToCart }: ProductListProps) => {
     );
 };
 
+//need to refactor to grid
 const ProductGrid = styled.div`
     display: flex;
     flex-direction: column;
-    grid-area: 1/3/4/4;
 `;
 
 export default ProductList;
