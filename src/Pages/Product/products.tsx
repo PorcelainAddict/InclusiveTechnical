@@ -8,8 +8,6 @@ import CartDrawer from '../../Components/Cart/CartDrawer';
 import { Cart } from '../../Models/cart';
 
 const ProductPage = () => {
-    //To do: refactor productList --> unneccessary
-    const [productList, setProductList] = useState(productData);
     const [cart, setNewCart] = useState<Cart[]>([]);
 
     const addItemToCart = (item: Product) => {
@@ -31,7 +29,7 @@ const ProductPage = () => {
     return (
         <>
             <Container>
-                <ProductList products={productList} addToCart={addItemToCart} />
+                <ProductList products={productData} addToCart={addItemToCart} />
                 <CartDrawer items={cart} removeFromCart={removeItemFromCart} />
             </Container>
         </>

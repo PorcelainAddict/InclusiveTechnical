@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Product } from '../../Models/product';
 import { StyledButton } from '../Buttons/Button';
-import { formattedPrice } from '../../Utils/formatConfig';
+import { formattedPrice } from '../../Utils/formatPrice';
 
 interface ProductTileProps {
     product: Product;

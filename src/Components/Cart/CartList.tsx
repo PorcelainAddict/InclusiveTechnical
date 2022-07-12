@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Product } from '../../Models/product';
 import { StyledButton } from '../Buttons/Button';
-import { formattedPrice } from '../../Utils/formatConfig';
+import { formattedPrice } from '../../Utils/formatPrice';
 import { Cart } from '../../Models/cart';
 import CartItem from '../Cart/CartItem';
 import { getTotalPrice } from '../../Utils/getTotalPrice';
@@ -78,7 +78,9 @@ const CartList = ({
 };
 
 const TotalPrice = styled.h2`
-    font-size: 24px;
+    font-size: 18px;
+    max-height: 30px;
+    max-width: 50px;
     padding: 15px;
     display: flex;
     justify-content: center;
