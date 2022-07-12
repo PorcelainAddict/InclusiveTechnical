@@ -1,5 +1,4 @@
 import { Product } from '../../Models/product';
-import { Cart } from '../../Models/cart';
 import styled from 'styled-components';
 
 interface CartItemProps {

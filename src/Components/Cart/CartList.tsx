@@ -20,10 +20,12 @@ const CartList = ({
     visibleCart,
     showCart,
 }: CartListProps) => {
+    //state for when working with discounts to display discount message
     const [discountApplied, setDiscountApplied] = useState<boolean>(false);
     const cartPrice = getTotalPrice(items);
     const totalCartPrice = formattedPrice(cartPrice);
 
+    //function to determine whether discount is applied.
     const withDiscount = (price: number) => {
         const discount =
             price > 50
@@ -39,8 +41,6 @@ const CartList = ({
                   });
         return discount;
     };
-
-    const priceText = withDiscount(cartPrice);
 
     return (
         <>
