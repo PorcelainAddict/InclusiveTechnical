@@ -7,6 +7,8 @@ This repo uses:
 -   Styled Componenents
 -   Jest
 
+Main page component is wrapped within App.tsx as 'ProductPage'. This can be found in 'Pages/Product/products.tsx'. This is where Json data has been imported. From here there is a Container component that wraps ProductList, where the list of products is stored, and CartDrawer where the cart items are stored once they are added. The cart can be opened with a button at the footer. Util folder contains two helper functions for getting the total price of cart and formatting the price into GBP. Models contains the models for Cart and Product. Components contains a custom styled button with props styles, Header, Footer, Cart: CartDrawer, CartList, CartItem, ProductList, ProductTile. Static contains the list of products as json stored as a variable. eslint and prettier are used for linting and formatting.
+
 ### `yarn install`
 
 ### `yarn start`
