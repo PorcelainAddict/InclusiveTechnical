@@ -12,7 +12,7 @@ const ProductList = ({ products, addToCart }: ProductListProps) => {
         <ProductGrid>
             {products.map((product, i) => (
                 <ProductTile
-                    key={`product_identity_${i}`}
+                    key={`product_identity_${product.id}_${i}`}
                     product={product}
                     addToCart={addToCart}
                 />

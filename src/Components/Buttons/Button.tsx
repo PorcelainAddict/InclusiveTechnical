@@ -12,6 +12,7 @@ interface ButtonProps {
     topPosition?: string;
     bottomPosition?: string;
     zIndex?: string;
+    margin?: string;
 }
 
 export const StyledButton = styled.button<ButtonProps>`
@@ -27,6 +28,7 @@ export const StyledButton = styled.button<ButtonProps>`
     top: ${(props) => (props.topPosition ? props.topPosition : '')};
     bottom: ${(props) => (props.bottomPosition ? props.bottomPosition : '')};
     z-index: ${(props) => (props.zIndex ? props.zIndex : '')};
+    margin: ${(props) => (props.margin ? props.margin : '')};
     :hover {
         opacity: 0.5;
     }

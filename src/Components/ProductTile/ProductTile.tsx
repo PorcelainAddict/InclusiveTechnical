@@ -13,7 +13,10 @@ const ProductTile = ({ product, addToCart }: ProductTileProps) => {
 
     return (
         <>
-            <ProductContainer key={product.id}>
+            <ProductContainer
+                outOfStock={product.stock === 0 ? true : false}
+                key={product.id}
+            >
                 <ProductImage src={product.image} />
                 <ProductNameContainer>
                     <ProductName>{product.productName} - </ProductName>
@@ -56,7 +59,7 @@ const ProductTile = ({ product, addToCart }: ProductTileProps) => {
     );
 };
 
-const ProductContainer = styled.div`
+const ProductContainer = styled.div<{ outOfStock: boolean }>`
     display: flex;
     flex-direction: column;
     border: 2px green solid;
@@ -66,6 +69,7 @@ const ProductContainer = styled.div`
     width: 30rem;
     margin: 2rem;
     box-shadow: 6px 6px 25px #70a37f;
+    opacity: ${(props) => (props.outOfStock ? '0.2' : '')};
 `;
 
 const ProductImage = styled.img`
