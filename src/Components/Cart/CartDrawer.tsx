@@ -33,7 +33,8 @@ const CartDrawer = ({ items, removeFromCart }: CartDrawerProps) => {
                     height="40px"
                     width="160px"
                     position="sticky"
-                    bottomPosition="0"
+                    bottomPosition="10px"
+                    margin="0 0 20px 0"
                     zIndex="3"
                     onClick={() => handleShowCart(showCart)}
                 >

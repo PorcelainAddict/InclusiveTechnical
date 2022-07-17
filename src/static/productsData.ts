@@ -66,6 +66,7 @@ export const productData = [
         },
         price: 26.0,
         stock: 4,
+        id: 3456,
         image: 'https://www.dummyimage.online/600x400/000000/ffffff',
     },
     {
