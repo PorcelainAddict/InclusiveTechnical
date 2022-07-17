@@ -21,31 +21,31 @@ const CartList = ({
     showCart,
 }: CartListProps) => {
     //state for when working with discounts to display discount message
-    const [discountApplied, setDiscountApplied] = useState<boolean>(false);
+    const [discountApplied, setDiscountApplied] = useState<string>('');
     const cartPrice = getTotalPrice(items);
-    const totalCartPrice = formattedPrice(cartPrice);
 
     //function to determine whether discount is applied.
-    const withDiscount = (price: number) => {
+    const withDiscount = (price: number, cartItems: Cart[]) => {
         const discount =
-            price > 50
+            price > 75 &&
+            cartItems.some(
+                (cat) =>
+                    cat.products.category.gender === 'Womens' &&
+                    cat.products.category.activity === 'Cycling'
+            )
+                ? formattedPrice(price - 15)
+                : price > 50
                 ? formattedPrice(price - 10)
-                : items.find((cat) => {
-                      if (
-                          price > 75 &&
-                          cat.products.category.gender === 'womens' &&
-                          cat.products.category.activity === 'cycling'
-                      ) {
-                          price - 15;
-                      }
-                  });
+                : formattedPrice(cartPrice);
         return discount;
     };
+
+    const discountText = withDiscount(cartPrice, items);
 
     return (
         <>
             <Container>
-                <TotalPrice>{`${totalCartPrice}`}</TotalPrice>
+                <TotalPrice>{`${discountText}`}</TotalPrice>
                 <RowContainer>
                     {items.map((item, i) => (
                         <CartItemRow key={`item_identity_${i}`}>
